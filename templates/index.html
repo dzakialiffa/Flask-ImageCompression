@@ -1,28 +1,14 @@
-<!doctype html>
-<!-- Memulai dokumen HTML -->
+<!DOCTYPE html>
 <html>
-   <head>
-      <!-- Menambahkan judul dokumen -->
-      <title>Remove Watermark</title>
-      <!-- Menambahkan link ke file CSS terpisah -->
-      <link rel="stylesheet" href="./static/style.css">
-   </head>
-   <body>
-      <!-- Menambahkan judul halaman -->
-      <h1>Remove Watermark</h1>
-      <!-- Membuat form untuk mengupload file -->
-      <form action="/" method="post" enctype="multipart/form-data">
-         <input type="file" name="file"><br><br>
-         <!-- Menambahkan tombol untuk mengirim form -->
-         <input type="submit" value="Upload">
-      </form>
-      {% if filename %}
-         <!-- Menampilkan hasil penghapusan watermark -->
-         <img src="{{ filename }}" alt="removed watermark">
-         <br>
-         <!-- Menambahkan link untuk mendownload hasil penghapusan watermark -->
-         <a href="/download/{{ filename }}">Download Result</a>
-      {% endif %}
-   </body>
-<!-- Menutup dokumen HTML -->
+<head>
+    <title>Image Compression</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Image Compression</h1>
+    <form action="/compress" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <input type="submit" value="Compress">
+    </form>
+</body>
 </html>
